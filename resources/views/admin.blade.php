@@ -131,7 +131,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th>Description</th>
+                    <th style="min-width:200px">Description</th>
                 </tr>
             </thead>
             <tfoot>
@@ -155,7 +155,6 @@
                                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#model-{{ $book['id'] }}">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
-                                &nbsp;
                                 <button type="button" class="btn btn-link" onclick="deleteBook('{{ $book['id'] }}')">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </button>

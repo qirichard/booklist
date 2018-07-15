@@ -29,7 +29,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th>Description</th>
+                    <th style="min-width:200px">Description</th>
                 </tr>
             </thead>
             <tfoot>
