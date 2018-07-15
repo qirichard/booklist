@@ -42,7 +42,9 @@ class UsersController extends Controller
             ]
         );
 
-        return Response::json(['updated' => true], 201);
+        return response('updated', 200)->json([
+            'updated' => true
+        ]);
     }
 
     public function show($id)
@@ -56,6 +58,8 @@ class UsersController extends Controller
 
         User::find($id)->delete();
 
-        return Response::json(['deleted' => true], 200);
+        return response('deleted', 200)->json([
+            'deleted' => true
+        ]);
     }
 }
