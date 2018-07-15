@@ -21,7 +21,7 @@ class GenreTest extends TestCase
         $response = $this->actingAs($user)->json('POST', '/genre', ['name' => 'Test']);
 
         $response
-            ->assertStatus(201)
+            ->assertStatus(200)
             ->assertJson([
                 'created' => true,
             ]);

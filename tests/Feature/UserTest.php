@@ -35,7 +35,7 @@ class UserTest extends TestCase
         $response = $this->actingAs($user)->json('PUT', '/user', ['id' => 1, 'name' => 'Richard', 'email' => 'qi.richard@gmail.com', 'role' => 'admin']);
 
         $response
-            ->assertStatus(201)
+            ->assertStatus(200)
             ->assertJson([
                 'created' => true,
             ]);
