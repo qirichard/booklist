@@ -36,6 +36,8 @@ class BooksController extends Controller
 
     public function delete($id)
     {
+        Log::debug( "Received delete request: ".$id );
+
         Book::find($id)->delete();
 
         return Response::json(['deleted' => true], 200);
@@ -43,6 +45,8 @@ class BooksController extends Controller
 
     public function add(Request $request)
     {
+        Log::debug( "Received add/update request: ".json_encode($request) );
+
         Book::updateOrCreate(
             [
                 'id' => $request->input('id')

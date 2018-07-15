@@ -6,6 +6,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Log;
 
 class UsersController extends Controller
 {
@@ -28,6 +29,8 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
+        Log::debug( "Received add/update request: ".json_encode($request) );
+
         User::updateOrCreate(
             [
                 'email' => $request->input('email')
@@ -49,6 +52,8 @@ class UsersController extends Controller
 
     public function delete($id)
     {
+        Log::debug( "Received delete request: ".$id );
+
         User::find($id)->delete();
 
         return Response::json(['deleted' => true], 200);

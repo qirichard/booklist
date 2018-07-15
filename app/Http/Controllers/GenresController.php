@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Genre;
+use Log;
 
 class GenresController extends Controller
 {
@@ -33,6 +34,8 @@ class GenresController extends Controller
 
     public function delete($name)
     {
+        Log::debug( "Received delete request: ".$name );
+
         Genre::name($name)->delete();
 
         return Response::json(['deleted' => true], 200);
@@ -40,6 +43,8 @@ class GenresController extends Controller
 
     public function add(Request $request)
     {
+        Log::debug( "Received add/update request: ".json_encode($request) );
+
         Genre::updateOrCreate(
             [
                 'id' => $request->input('id')
