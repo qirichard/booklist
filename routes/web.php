@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@list');
 
 Auth::routes();
 
+Route::get('/home', 'BooksController@list');
 Route::get('/admin', 'BooksController@list');
 
 // Route::get('/admin/user/list', 'UsersController@listAll');

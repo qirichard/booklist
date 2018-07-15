@@ -5,8 +5,6 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class GenreTest extends TestCase
 {
@@ -17,9 +15,7 @@ class GenreTest extends TestCase
      */
     public function testAdd()
     {
-        $response = $this->withHeaders([
-            'X-Header' => 'Value',
-        ])->json('POST', '/genre', ['name' => 'Test']);
+        $response = $this->json('POST', '/genre', ['name' => 'Test']);
 
         $response
             ->assertStatus(201)
@@ -30,12 +26,10 @@ class GenreTest extends TestCase
 
     public function testDelete()
     {
-        $response = $this->withHeaders([
-            'X-Header' => 'Value',
-        ])->json('DELETE', '/genre/test', []);
+        $response = $this->json('DELETE', '/genre/test', []);
 
         $response
-            ->assertStatus(201)
+            ->assertStatus(200)
             ->assertJson([
                 'deleted' => true,
             ]);
