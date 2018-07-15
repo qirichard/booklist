@@ -10,10 +10,7 @@
             $("#myTable").DataTable({
                 responsive: true,
                 columnDefs: [
-                    { targets: [-1], className: 'dt-body-right' },
-                    { targets: [-3, -2], className: 'dt-body-center' },
-                    { "orderable": false, "targets": [-2 ] },
-                    { "searchable": false, "targets": [-2, -1, -3] }
+                    { targets: [1, 2, 3, 4, 5, 6], className: 'dt-body-nowrap' }
                 ]
             });
         });
@@ -23,7 +20,7 @@
 @section('content')
 <div class="container">
     @if($books != null)
-        <table id="myTable" class="display responsive nowrap" cellspacing="0" width="100%">
+        <table id="myTable" class="display responsive" style="max-width:800px" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -32,7 +29,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th>Description</th>
+                    <th width="400px" style="max-width:800px">Description</th>
                 </tr>
             </thead>
             <tfoot>
