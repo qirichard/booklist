@@ -1,0 +1,10 @@
+branch-defaults:
+  default:
+    environment: Booklist-env
+global:
+  application_name: booklist
+  default_ec2_keyname: onestep
+  default_platform: PHP 7.1
+  default_region: us-east-2
+  profile: personal
+  workspace_type: Application

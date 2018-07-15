@@ -10,10 +10,10 @@
             $("#myTable").DataTable({
                 responsive: true,
                 columnDefs: [
-                    { targets: [-1], className: 'dt-body-right' },
-                    { targets: [-3, -2], className: 'dt-body-center' },
-                    { "orderable": false, "targets": [-4, -3, -2] },
-                    { "searchable": false, "targets": [-4, -3, -2, -1] }
+                    { targets: [-2], className: 'dt-body-right' },
+                    { targets: [-4, -3], className: 'dt-body-center' },
+                    { "orderable": false, "targets": [1] },
+                    { "searchable": false, "targets": [1] }
                 ]
             });
         });
@@ -43,8 +43,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xs-12">
+
             <div class="row">
                 <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#model-new-book">Add a book</button>
 
@@ -120,31 +119,29 @@
             </div>
             <br />
             <div class="row">
-                <table id="myTable" class="table table-hover table-bordered table-striped">
+                <table id="myTable" class="display responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Title</th>
-                            <th>ISBN</th>
                             <th>Author</th>
                             <th>Genres</th>
                             <th>Price</th>
-                            <th>Description</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>ISBN</th>
                             <th>Last Update</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
+                            <th></th>
                             <th>Title</th>
-                            <th>ISBN</th>
                             <th>Author</th>
                             <th>Genres</th>
                             <th>Price</th>
-                            <th>Description</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>ISBN</th>
                             <th>Last Update</th>
+                            <th>Description</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -152,34 +149,23 @@
                         @if($books != null)
                             @foreach ($books as $book)
                                 <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#model-{{ $book['id'] }}">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" class="btn btn-link" onclick="deleteBook('{{ $book['id'] }}')">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </td>
                                     <td>{{ $book['title'] }}</td>
-                                    <td>{{ $book['isbn'] }}</td>
                                     <td>{{ $book['author'] }}</td>
                                     <td>{{ $book['genres'] }}</td>
                                     <td>{{ $book['price'] }}</td>
-                                    <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#model-des-{{ $book['id'] }}">description</button></td>
-                                    <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#model-{{ $book['id'] }}">edit</button></td>
-                                    <td><button type="button" class="btn btn-link" onclick="deleteBook('{{ $book['id'] }}')">delete</button></td>
+                                    <td>{{ $book['isbn'] }}</td>
                                     <td>{{ $book['updated_at'] }}</td>
+                                    <td>{{ $book['description'] }}</td>
                                 </tr>
-                                <!-- Modal -->
-                                <div class="modal fade" id="model-des-{{ $book['id'] }}" role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">{{ $book['title'] }}</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="jumbotron">
-                                                    {{$book['description']}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="model-{{ $book['id'] }}" role="dialog">
                                     <div class="modal-dialog">
@@ -265,7 +251,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+
 </div>
 @endsection

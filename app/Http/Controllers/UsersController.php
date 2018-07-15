@@ -25,7 +25,7 @@ class UsersController extends Controller
         return view('user', $users);
     }
 
-    public function updateOrCreate(Request $request)
+    public function update(Request $request)
     {
         User::updateOrCreate(
             [
@@ -39,10 +39,7 @@ class UsersController extends Controller
         );
 
         //back to user list
-        $users = User::all()->toArray();
-
-        // return $users;
-        return view('user', $users);
+        return redirect('user');
     }
 
     public function show($id)
