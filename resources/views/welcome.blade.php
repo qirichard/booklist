@@ -10,7 +10,7 @@
             $("#myTable").DataTable({
                 responsive: true,
                 columnDefs: [
-                    { targets: [1, 2, 3, 4, 5, 6], className: 'dt-body-nowrap' }
+                    { targets: [0, 1, 2, 3, 4, 5], className: 'dt-body-nowrap' }
                 ]
             });
         });
@@ -29,7 +29,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th width="500px" style="max-width:800px">Description</th>
+                    <th width="800px" style="max-width:800px">Description</th>
                 </tr>
             </thead>
             <tfoot>
