@@ -29,7 +29,9 @@ class UserTest extends TestCase
 
     public function testEdit()
     {
-        $response = $this->json('PUT', '/user', ['id' => 1, 'role' => 'admin']);
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->json('PUT', '/user', ['id' => 1, 'role' => 'admin']);
 
         $response
             ->assertStatus(201)

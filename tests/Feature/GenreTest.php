@@ -15,7 +15,9 @@ class GenreTest extends TestCase
      */
     public function testAdd()
     {
-        $response = $this->json('POST', '/genre', ['name' => 'Test']);
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->json('POST', '/genre', ['name' => 'Test']);
 
         $response
             ->assertStatus(201)
@@ -26,7 +28,9 @@ class GenreTest extends TestCase
 
     public function testDelete()
     {
-        $response = $this->json('DELETE', '/genre/test', []);
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->json('DELETE', '/genre/test', []);
 
         $response
             ->assertStatus(200)
