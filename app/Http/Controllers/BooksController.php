@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Log;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Book;
 use App\Genre;
 
@@ -35,7 +36,9 @@ class BooksController extends Controller
 
     public function delete($id)
     {
-        return Book::find($id)->delete();
+        Book::find($id)->delete();
+
+        return Response::json(['deleted' => true], 200);
     }
 
     public function add(Request $request)

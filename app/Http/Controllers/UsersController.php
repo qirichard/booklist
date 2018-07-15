@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UsersController extends Controller
 {
@@ -27,7 +28,7 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        return User::updateOrCreate(
+        User::updateOrCreate(
             [
                 'email' => $request->input('email')
             ],
@@ -37,6 +38,8 @@ class UsersController extends Controller
                 'role' => $request->input('role'),
             ]
         );
+
+        return Response::json(['updated' => true], 201);
     }
 
     public function show($id)
@@ -46,6 +49,8 @@ class UsersController extends Controller
 
     public function delete($id)
     {
-        return User::find($id)->delete();
+        User::find($id)->delete();
+
+        return Response::json(['deleted' => true], 200);
     }
 }
