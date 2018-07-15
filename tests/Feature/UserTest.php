@@ -15,14 +15,26 @@ class UserTest extends TestCase
      */
     public function testRegister()
     {
-        $this->visit('/admin')
-             ->click('Register')
-             ->seePageIs('/register');
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
     }
 
     public function testLogin()
     {
-        $this->visit('/admin')
-             ->seePageIs('/login');
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
+    public function testEdit()
+    {
+        $response = $this->json('PUT', '/user', ['id' => 1, 'role' => 'admin']);
+
+        $response
+            ->assertStatus(201)
+            ->assertJson([
+                'created' => true,
+            ]);
     }
 }
