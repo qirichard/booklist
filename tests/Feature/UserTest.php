@@ -37,7 +37,7 @@ class UserTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJson([
-                'created' => true,
+                'updated' => true,
             ]);
     }
 }
