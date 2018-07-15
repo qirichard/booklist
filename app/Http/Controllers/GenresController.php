@@ -38,7 +38,7 @@ class GenresController extends Controller
 
         Genre::name($name)->delete();
 
-        return response('deleted', 200)->json([
+        return response()->json([
             'deleted' => true
         ]);
     }
@@ -56,7 +56,7 @@ class GenresController extends Controller
             ]
         );
 
-        return response('created', 201)->json([
+        return response()->json([
             'created' => true
         ]);
     }

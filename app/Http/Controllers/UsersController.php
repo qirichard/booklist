@@ -42,7 +42,7 @@ class UsersController extends Controller
             ]
         );
 
-        return response('updated', 200)->json([
+        return response()->json([
             'updated' => true
         ]);
     }
@@ -58,7 +58,7 @@ class UsersController extends Controller
 
         User::find($id)->delete();
 
-        return response('deleted', 200)->json([
+        return response()->json([
             'deleted' => true
         ]);
     }

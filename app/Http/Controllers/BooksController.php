@@ -40,7 +40,7 @@ class BooksController extends Controller
 
         Book::find($id)->delete();
 
-        return response('deleted', 200)->json([
+        return response()->json([
             'deleted' => true
         ]);
     }
