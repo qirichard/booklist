@@ -22,3 +22,9 @@ Route::get('/admin', 'BooksController@list');
 
 Route::delete('/book/{id}', 'BooksController@delete');
 Route::post('/book', 'BooksController@add');
+
+Route::post('/genre', 'GenresController@add');
+Route::delete('/genre/{id}', 'GenresController@delete');
+
+Route::put('/user', 'GenresController@update');
+Route::delete('/user/{id}', 'GenresController@delete');

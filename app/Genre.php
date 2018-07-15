@@ -21,4 +21,9 @@ class Genre extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function scopeName($query, $name) // Genre::name()
+    {
+        return $query->where('name', $name)->first();
+    }
 }

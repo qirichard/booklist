@@ -22,22 +22,9 @@ class Book extends Model
         'isbn', 'title', 'author', 'genres', 'price', 'description'
     ];
 
-    // //
-    // public function scopeDeleted($query) // Environment::deleted()
-    // {
-    //     return $query->where('status', 'deleted');
-    // }
-    //
-    // public function scopeIdentifier($query, $identifier) // Environment::identifier()
-    // {
-    //     return $query->where('identifier', $identifier);
-    // }
-    //
-    // public function scopeAccountRegion($query, $accountid, $region) // Environment::accountRegion()
-    // {
-    //     return $query->where([
-    //         ['awsaccountid', $accountid],
-    //         ['region', $region]
-    //     ]);
-    // }
+    public function scopeName($query, $name) // Book::name()
+    {
+        return $query->where('name', $name)->first();
+    }
+
 }

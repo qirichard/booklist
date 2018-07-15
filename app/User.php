@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeEmail($query, $email) // User::email()
+    {
+        return $query->where('email', $email)->first();
+    }
 }

@@ -27,7 +27,7 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        User::updateOrCreate(
+        return User::updateOrCreate(
             [
                 'email' => $request->input('email')
             ],
@@ -37,9 +37,6 @@ class UsersController extends Controller
                 'role' => $request->input('role'),
             ]
         );
-
-        //back to user list
-        return redirect('user');
     }
 
     public function show($id)
