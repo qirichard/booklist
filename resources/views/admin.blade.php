@@ -8,14 +8,14 @@
     <script>
         $(document).ready(function(){
             $("#myTable").DataTable({
+                "order": [[ 1, "asc" ]],
                 responsive: true,
                 columnDefs: [
-                    { targets: [0, 1, 2, 3, 4, 5], className: 'dt-body-nowrap' },
+                    { targets: [0, 1, 2, 3, 4, 5, 6], className: 'dt-body-nowrap' },
                     { targets: [-2], className: 'dt-body-right' },
                     { targets: [-4, -3], className: 'dt-body-center' },
                     { "orderable": false, "targets": [0] },
-                    { "searchable": false, "targets": [0] },
-                    { "order": [[ 1, "asc" ]] }
+                    { "searchable": false, "targets": [0] }
                 ]
             });
         });
@@ -130,7 +130,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th width="800px" style="max-width:800px">Description</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tfoot>
