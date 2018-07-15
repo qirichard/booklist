@@ -20,7 +20,7 @@
 @section('content')
 <div class="container">
     @if($books != null)
-        <table id="myTable" class="display responsive" style="max-width:800px" cellspacing="0" width="100%">
+        <table id="myTable" class="display responsive" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -29,7 +29,7 @@
                     <th>Price</th>
                     <th>ISBN</th>
                     <th>Last Update</th>
-                    <th width="400px" style="max-width:800px">Description</th>
+                    <th width="500px" style="max-width:800px">Description</th>
                 </tr>
             </thead>
             <tfoot>
