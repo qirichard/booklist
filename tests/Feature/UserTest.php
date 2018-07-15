@@ -32,7 +32,7 @@ class UserTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)->json('PUT', '/user', ['id' => 1, 'role' => 'admin']);
+        $response = $this->actingAs($user)->json('PUT', '/user', ['id' => 1, 'name' => 'Richard', 'email' => 'qi.richard@gmail.com', 'role' => 'admin']);
 
         $response
             ->assertStatus(201)
