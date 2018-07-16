@@ -29,7 +29,7 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        Log::debug( "Received add/update request: ".json_encode($request) );
+        Log::debug( "Received add/update request: ".json_encode($request->toArray()) );
 
         User::updateOrCreate(
             [

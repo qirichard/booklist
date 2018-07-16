@@ -47,7 +47,7 @@ class BooksController extends Controller
 
     public function add(Request $request)
     {
-        Log::debug( "Received add/update request: ".json_encode($request) );
+        Log::debug( "Received add/update request: ".json_encode($request->toArray()) );
 
         Book::updateOrCreate(
             [

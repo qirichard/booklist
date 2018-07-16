@@ -45,7 +45,7 @@ class GenresController extends Controller
 
     public function add(Request $request)
     {
-        Log::debug( "Received add/update request: ".json_encode($request) );
+        Log::debug( "Received add/update request: ".json_encode($request->toArray()) );
 
         Genre::updateOrCreate(
             [

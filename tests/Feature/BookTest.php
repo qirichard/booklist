@@ -28,7 +28,7 @@ class BookTest extends TestCase
                                                                     'ISBN' => '123',
                                                                     'Author' => 'A1',
                                                                     'Price' => '9.99',
-                                                                    'Genres' => array('Health'),
+                                                                    'Genres' => ['Health'],
                                                                     'Description' => 'This is a test'
                                                 ]);
 
