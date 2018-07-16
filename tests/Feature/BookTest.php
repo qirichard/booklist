@@ -25,11 +25,11 @@ class BookTest extends TestCase
 
         $response = $this->actingAs($user)->json('POST', '/book', [
                                                                     'title' => 'Test',
-                                                                    'ISBN' => '123',
-                                                                    'Author' => 'A1',
-                                                                    'Price' => '9.99',
-                                                                    'Genres' => ['Health'],
-                                                                    'Description' => 'This is a test'
+                                                                    'isbn' => '123',
+                                                                    'author' => 'A1',
+                                                                    'price' => '9.99',
+                                                                    'genres' => ['Health'],
+                                                                    'description' => 'This is a test'
                                                 ]);
 
         $response->assertRedirect('/admin');
